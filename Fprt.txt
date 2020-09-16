@@ -1,1 +1,163 @@
+****************Answer.1*******************
+  forward proxy-
+  Forward proxy, which is the legendary proxy, works as a springboard. simply put, I am a user, I cannot access a website, but I can access a proxy server. What about this proxy     server, he can access the website that I can’t access So I first connected to the proxy server and told him I needed the content that could not access the website. The proxy       server fetches it back and then returns it to me. From the perspective of the website, there is only one record when the proxy server comes to fetch content. Sometimes it is not   known that it is the user’s request, and the user’s information is also hidden, depending on whether the agent tells the website.
+  So basically the forward proxy is a server located between the client and the origin server. In order to get content from the origin server, the client sends a request to the proxy and specifies the target (origin server), and then the proxy forwards it to the origin server. Request and return the obtained content to the client. The client must make some special settings to use a forward proxy.
+  
+  reverse proxy-
+   the reverse proxy is just the opposite, it appears to the client as the original server, and the client does not need to do any special setup. The client sends a normal request     to the content in the name-space of the reverse proxy, and then the reverse proxy will determine where (origin server) to forward the request and return the obtained content       to the client, like these The content was originally it’s own.
+  
 
+ Forward & Reverse proxy -
+   The typical use of a forward proxy is to provide LAN clients inside the firewall with access to the Internet. The forward proxy can also use the buffering feature to reduce         network usage. A typical use of a reverse proxy is to provide servers behind the firewall to Internet users. The reverse proxy can also provide load balancing for multiple         servers at the back end, or provide buffering services for slower servers at the back end.
+  In addition, the reverse proxy can also enable advanced URL policies and management technologies, so that web pages in different web server systems can exist in the same URL         space at the same time.
+  In terms of security:
+  The forward proxy allows clients to access any website through it and hides the client itself, so you must take security measures to ensure that only authorized clients are        served.
+  The reverse proxy is transparent to the outside, and the visitor does not know that he or she is visiting a proxy.
+  
+  ****************Answer.2*******************
+  Caching-
+    Caching is the act of keeping data in storage to allow retrieval without having to request the data from the original source, if that data will not change frequently.
+    A typical caching scenario is having a cached copy of a web page. That page doesn't change every five minutes, so caching it locally on your computer saves time and bandwidth      for you to re-display it if you hit reload in your browser.
+   Different types of cache-
+    Direct-mapped cache.
+    Fully associative cache.
+    N-way-set-associative cache.
+   Ways to update cache-
+    There are a few different ways to keep the cache up to date:
+      If all of the changes to the data come through the same application as is caching the data, then the cache can be updated when the data changes.
+      In distributed systems (more than one server needing to have access to the same cached data), information about cache changes can be propagated synchronously or asynchronously over the network, and that information can be in the form of cache invalidations or cache updates.
+      When data is invalidated, or when it times out (if it has an expiry policy), then the next "read" access to that data will cause a read to the database. If the application does the read and then stores the data in the cache, then it is called "cache aside"; if the cache does this automatically as part of the attempt to access the data, then it is called "read through".
+      When a cache can see that data will soon be evicted (or is in the process of being invalidated), it can choose to pro-actively re-read the data from the database, so that there will not be a cache miss when the data is invalidated or evicted. This is called "cache ahead" or "refresh ahead".
+      When a distributed cache incurs latency on access due to network time, it is possible to keep a smaller cache in memory on each requesting server; this is called a "near cache".
+    
+  
+  ****************Answer.3*******************
+  
+1) REST is all about resources, and RPC is more about actions.
+
+2) In RPC, it is guessable that the contract (what forms the language of how a client and server understand each other) is the service and all its procedures. In REST, the contract is the uniform interface. This uniform interface constraint defines identification and represent of resources, self-description messages (information to describe how to process the message) and hypermedia.
+
+3) In RPC, the action semantics and error semantics are specified out of band. In REST, the actions are standardized by the uniform interface and so are errors.
+
+4) In RPC, there is limited caching support. Yes, you can build RPC applications that benefit from caching but it is not something that's guaranteed by the RPC style. In case of REST, caching is supported by all intermediaries which understand the uniform interface.
+
+5) In RPC, client and server share ownership of URL namespace as procedures can be called by way of the client knowing the URL for a particular service or operation. this means once the client has been deployed, it is difficult for the server to change the URL structure for its services. In REST, Server owns URL namespace except a single entry point URL and the clients can access individual services by following links.
+
+6) A RESTful system is tied to the uniform interface of the supporting protocol HTTP and cannot tunnel through multiple protocols, unlike RPC.
+    
+
+****************Answer.4*******************
+
+OWASP is called Open Web Application Security Project, an online community that produces articles, methodologies, documentation, tools, and technologies in the field of web application security.
+
+  The Top 10 OWASP vulnerabilities in 2020 are:
+  
+    Injection --  A code injection happens when an attacker sends invalid data to the web application with the intention to make it do something that the application was not             designed/programmed to do.
+    
+    Broken Authentication -- A broken authentication vulnerability can allow an attacker to use manual and/or automatic methods to try to gain control over any account they want         in a system – or even worse – to gain complete control over the system.
+    
+    Sensitive Data Exposure -- Sensitive data exposure is one of the most widespread vulnerabilities on the OWASP list. It consists of compromising data that should have been          protected.
+    
+    XML External Entities (XXE) -- an XML External Entity attack is a type of attack against an application that parses XML input. This attack occurs when XML input containing a         reference to an external entity is processed by a weakly configured XML parser.
+        Most XML parsers are vulnerable to XXE attacks by default. That is why the responsibility of ensuring the application does not have this vulnerability lays mainly on the         developer.
+
+    Broken Access control -- In website security, access control means putting a limit on what sections or pages visitors can reach, depending on their needs.
+        For example, if you own an ecommerce store, you probably need access to the admin panel in order to add new products or to set up a promotion for the upcoming holidays.          However, hardly anybody else would need it. Allowing the rest of your website’s visitors to reach your login page only opens up your ecommerce store to attacks.
+          And that’s the problem with almost all major content management systems (CMS) these days. By default, they give worldwide access to the admin login page. Most of them            also won’t force you to establish a two-factor authentication method (2FA).
+            The above makes you think a lot about software development with a security-first philosophy
+            
+    Security misconfigurations -- The application server comes with sample applications that are not removed from the production server.
+        These sample applications have known security flaws that attackers use to compromise the server. If one of these applications is the admin console and default accounts             weren’t changed, the attacker logs in with default passwords and takes over.
+        
+    Cross Site Scripting (XSS) -- Cross Site Scripting (XSS) is a widespread vulnerability that affects many web applications. XSS attacks consist of injecting malicious client-         side scripts into a website and using the website as a propagation method.
+    
+    Insecure Deserialization
+    
+    Using Components with known vulnerabilities
+    
+    Insufficient logging and monitoring.
+    
+    
+    ****************Answer.5*******************
+    HTTP -- The Hypertext Transfer Protocol (HTTP) is an application-level protocol for distributed, collaborative, hypermedia information systems.
+    
+    HTTP & TCP --
+        TCP is a transport-layer protocol, and HTTP is an application-layer protocol that runs over TCP.The most fundamental difference between the two is that TCP and HTTP              works at different layers, i.e, they have independent (and radically different ) tasks to perform. You can have both protocols in your application, you can have either             of the two or you can have none.
+
+          Leaving the lower levels, let us start with the network level which is home to the famous IPv4 protocol. Its main aim is to route the data packets from the source to             the destination. It does not care about what data it is carrying and whether it was delivered to the destination or not. It will make its best effort and that's all.
+
+            Now enter the transport layer, residence of TCP protocol. Once the route is set, TCP protocol is entrusted with the responsibility of transferring the data reliably.              Hence it has mechanism to check if the packet was received or not ( in the form of ACKnowledgement fields ), to put the packets in sequence if they became                        out of order in transit and many more. It also doesn't care about data it is transmitting. UDP is another widely used protocol at this level but that is a different              story.
+
+            And the final layer of interest is the application layer. It is the layer that is nearest to the application and HTTP is just one of the various protocols used. The              reason it is widely popular is that it is used by web browsers to communicate with the web server and fetch the webpages that you see. In the same way that HTTP is               used by browsers, SMTP and IMAP is used by email-clients. It has no role whatsoever in setting up the connection, it is only application specific. It assumes that                you know how to find the route to the webserver ( courtsey IPv4 ) and have setup a connection and can transfer data reliably ( courtsey TCP ). It is only                         concerned with the data that you exchange; what is its URL, what is its type, where to find it.
+        GET -- 
+          You use GET to get a resource from the web.
+        
+        POST --
+          You use POST to create a resource and instruct the server to make a Uniform Resource Identifier (URI) for it. For example, when you want to create a new article you              would POST to /articles to make the file and get the URI, so you end up with /articles/1234/. 
+        
+        PUT --
+          PUT also creates resources, but it does so for a known URI. So, you can PUT to /articles/1234/. If the article doesn't exist, PUT creates it. If it does exist, this                HTTP verb updates it.
+        PATCH --
+        This HTTP verb partially updates resources without sending the complete representation of it. When you're working with complicated objects and resources, it's a big deal             to update more than you need to. 
+    
+    
+       ****************Answer.6*******************
+       
+       Dns server is domain name server….it is used to give the ip adress of particular domain. For eg I don't know what is the ip of google. Com but network doesn't know           what is google. Com as it only knows ip adresses.So this DNS is used to change google. Come to it's ip adress to reach the google. Come server .This is DNS                works....
+
+      There is another thing as well which is RDNS-IT'S USED when u don't know the domain name but u know the ip adress of some particular domain.
+
+      How dns works, it goes in three steps --
+
+      1.host file: host file is nothing but a text file stored in your C drive/windows/sytem32/etc where it stores the domain names with its IP addresses... So eg:if you want to         search for Yahoo then your pc directly goes it this host file to check if the host file consists of Yahoo ip Adress……
+
+      2.resolution cache:next if it didn't find the ip Adresss in host file it goes to cache memory(ipconfig/displaydns)it stores all the domain names and its ip adress if you           alrdy searched for yahoo then it directly stores its ip adresss in resolution cache....
+
+      3.local dns:this is the dns that evry computer has.. Though the ip is not found in resolution cache and host file it checks with local dns/isp dsp.... If it's available          over there then it directly gives you the ip adress to your computer...... But what if doesn't have the ip adress that you are searching for domain then it goes three steps
+
+        1.this local dns contacts the root domain to know the ip adres of particular domain... The root domain directs the local dns to search with top level domain(TLD) like            (.com,. Org etc) by giving it's ip adress,,,, and the local DNS contacts and ask TLD if it knows the ip Adress of particular domain... This tld gives the ip adress of            dns server.... And the local dns asks the same to dns server, which contains all the information about the domains and ip adress then finally local dns gets the IP               address from dns server....... This is how dns works
+    
+    
+    ****************Answer.7*******************
+    CDN Stands for Content Delivery Network. CDN is a highly-distributed platform with many servers which separated globally. The web content delivers to the end-user based on         the regional location of the user. And also based on the origin webpage, the CDN server.Web caching techniques: content distribution networks
+A content distribution network (CDN) features proxy servers located in multiple locations for faster content delivery. CDNs use multiple servers to retain copies of rich media and content.
+
+When a user sends a request, this is sent to the closest CDN server geographically. This means that media files load more quickly and reduce the load on the primary network.
+
+ ****************Answer.8*******************
+ 
+ SQL -- 1. Relational Database management system
+ 2. vertically scalable
+ 3. fixed or predefined schema
+ 4. not suitable for hirarchicle datastorage
+ 5. can be used for complex queries
+ 
+ NOSQL -- 1. Distributed Database management system
+ 2. Horizontally scalable
+ 3. Dynamic schema
+ 4. best suitable for hirarchicle datastorage
+ 5. not good for complex queries
+ 
+ 
+ 
+****************Answer.10*******************
+
+Normalization -- 1. Normalization is used to remove redundant data from the database and to store non-redundant and consistent data into it.
+2. Normalization mainly focuses on clearing the database from unused data and to reduce the data redundancy and inconsistency.
+3. During Normalization as data is reduced so a number of tables are deleted from the database hence tables are lesser in number.
+4. Normalization uses optimized memory and hence faster in performance.
+5. Normalization maintains data integrity i.e. any addition or deletion of data from the table will not create any mismatch in the relationship of the tables.
+
+
+Denormalization -- 1.Denormalization is used to combine multiple table data into one so that it can be queried quickly.
+2. Denormalization on the other hand focus on to achieve the faster execution of the queries through introducing redundancy.
+3. during Denormalization data is integrated into the same database and hence a number of tables to store that data increases in number.
+4. denormalization introduces some sort of wastage of memory.
+5. denormalization does not maintain any data integrity.
+
+    
+    
+    
+    
+    
+    
