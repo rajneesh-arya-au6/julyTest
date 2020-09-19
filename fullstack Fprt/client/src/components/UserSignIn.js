@@ -6,8 +6,8 @@ import { Context } from '../Context';
 const UserSignIn = ({ location, history }) => {
   // State Declaration
   const [user, setUser] = useState({
-    emailAddress: 'john@smith.com',
-    password: 'john12345',
+    emailAddress: 'rajneesharya94@gmail.com',
+    password: '123456789',
   });
   const [errors, setErrors] = useState([]);
 
